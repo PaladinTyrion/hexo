@@ -117,7 +117,7 @@ MARKER_EXPR = originalTextFor(MARKER_EXPR(""))("marker")
 #### Tip.14 Mac安装软件出现"应用已损坏"的解决办法
 
 ```
-$ sudo spctl --master-disale
+$ sudo spctl --master-disable
 # 完事之后再切回来
 $ sudo spctl --master-enable
 ```
