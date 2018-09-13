@@ -1,5 +1,5 @@
 ---
-title: numpy_note
+title: Numpy_Note
 date: 2018-09-13 15:38:26
 categories: python
 type: "tags"
