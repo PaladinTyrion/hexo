@@ -7,7 +7,7 @@ tags:
   - python
 ---
 
-#### numpy知识点
+#### Numpy知识点
 
 - 构建numpy对象
 - 从序列型对象中构造
@@ -33,7 +33,7 @@ tags:
 - matrix对象
 - 数据的持久化
 
-##### numpy tips
+#### Numpy Tips
 
 - astype默认是copy的, 不会改变原来的数组
 - 切片是视图, 也就是原来数据的引用, 我们对视图的修改会体现在原来的数据上
