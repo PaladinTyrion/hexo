@@ -2,7 +2,7 @@
 title: Pandas_Note
 date: 2018-09-17 19:10:21
 categories: python
-tags: "tags"
+type: "tags"
 tags:
   - python
 ---
