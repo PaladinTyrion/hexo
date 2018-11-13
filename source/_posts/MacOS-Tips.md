@@ -318,3 +318,10 @@ $ hostnamectl set-hostname paladintyrion
 ```
 $ git config --global credential.helper store
 ```
+
+#### Tip.30 IntelliJ解决两个JVM环境的问题
+
+```
+# help->edit custom properties
+idea.no.launcher=true
+```
