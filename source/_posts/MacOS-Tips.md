@@ -325,3 +325,16 @@ $ git config --global credential.helper store
 # help->edit custom properties
 idea.no.launcher=true
 ```
+
+#### Tip.31 Linux反选文件删除
+
+```
+$ shopt -s extglob  ## 打开extglob模式
+$ rm -fr !(*.bak)  ## 删除非*.bak的文件
+```
+
+#### Tip.32 批量重命名
+
+```
+$ for i in `ls`; do mv -f $i `echo $i | sed 's/\.bak$//'`; done
+```
