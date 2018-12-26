@@ -25,6 +25,9 @@ $ sudo updatedb    #Linux
 
 ```
 $ xcode-select --install    #MocOS
+$ softwareupdate --list
+$ softwareupdate --install <product name>   #安装product
+$ softwareupdate --install -a   #升级all CommandLineTools
 ```
 
 <!-- more -->
