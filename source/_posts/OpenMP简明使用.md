@@ -62,6 +62,14 @@ int omp_set_num_threads(int)
 
 #### parallel和for循环
 
+##### 检查对OpenMP的支持
+
+```
+#ifndef _OPENMP
+    fprintf(stderr, "OpenMP not supported");
+#endif
+```
+
 ##### 声明
 
 第二种声明方式简洁，但第一种声明方式可以在for循环以外写其他并行代码
@@ -134,12 +142,11 @@ reduction(operator: var1, val2, ...)
 其中operator以及约定变量的初始值如下：
 
 运算符      |      数据类型       |     默认初始值
----        |        ---        |       ---
-  +        |      整数、浮点     |        0
-  -        |      整数、浮点     |        0
+  ---      |        ---         |       ---
+  +/-      |      整数、浮点     |        0
   *        |      整数、浮点     |        1
   &        |        整数        |     所有位均为1
-  &#124;    |        整数        |        0
+  &#124;   |        整数        |        0
   ^        |        整数        |        0
   &&       |        整数        |        1
   &#124;&#124;   |        整数        |        0
@@ -225,9 +232,19 @@ or
 }
 ```
 
+#### 调度
+
+```
+#pragma omp parallel for schedule(kind [, chunk size])
+```
+
+**kind: static, dynamic, guided, runtime(runtime没有chunk size)**
+
 ### 了解OpenMPI
 
-OpenMPI与OpenMP完全不一样。OpenMPI意义在于多机多硬件架构，OpenMP在于SMP架构。
+OpenMPI与OpenMP完全不一样。OpenMPI意义在于多机多硬件架构，OpenMP在于SMP(UMA)架构或者NUMA架构。
+
+![OpenMPOnAech](OpenMPOnAech.png)
 
 #### OpenMPI安装
 
@@ -274,3 +291,6 @@ Hello world from processor paladin, rank 2 out of 4 processors
 - [小土刀-OpenMP入门指南](https://wdxtub.com/2016/03/20/openmp-guide/)
 - [OpenMP on MacOS](https://iscinumpy.gitlab.io/post/omp-on-high-sierra/)
 - [About_OpenMPI](http://mpitutorial.com/tutorials/mpi-hello-world/zh_cn/)
+- [OpenMP入门](https://www.cnblogs.com/ospider/p/5265975.html)
+- [OpenMP入门教程1](https://www.cnblogs.com/lfri/p/10111315.html)
+- [OpenMP入门教程2](https://www.cnblogs.com/lfri/p/10111466.html)
