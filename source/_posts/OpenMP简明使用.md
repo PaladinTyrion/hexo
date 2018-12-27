@@ -140,10 +140,10 @@ reduction(operator: var1, val2, ...)
   -        |      整数、浮点     |        0
   *        |      整数、浮点     |        1
   &        |        整数        |     所有位均为1
-  \|       |        整数        |        0
+  &#124;    |        整数        |        0
   ^        |        整数        |        0
   &&       |        整数        |        1
-  \|\|     |        整数        |        0
+  &#124;&#124;   |        整数        |        0
 
 #### 线程同步atomic
 
@@ -154,7 +154,7 @@ reduction(operator: var1, val2, ...)
 atomic只能用于两种情况(单变量的自操作，跟for中介绍的一样)：
 
 - 自加自减：x++, x--, --x, ++x
-- x< + or * or - or / or & or | or << or >> >=expr，(例如x <<= 1; or x \*=2;)
+- x< + or &#42; or - or / or & or | or << or >> >=expr，(例如x <<= 1; or x &#42;=2;)
 
 #### 线程同步critical
 
