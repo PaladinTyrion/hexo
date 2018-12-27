@@ -225,6 +225,52 @@ or
 }
 ```
 
+### 了解OpenMPI
+
+OpenMPI与OpenMP完全不一样。OpenMPI意义在于多机多硬件架构，OpenMP在于SMP架构。
+
+#### OpenMPI安装
+
+```
+$ brew install open-mpi
+```
+
+#### CLion配置
+
+Preferences -> Build,Execution,Deployment -> Toolchains中新建一个用户配置，设置对应的cmake，make，C/C++ compiler(配置为mpic++/mpicc)
+
+Preferences -> Build,Execution,Deployment -> CMake中Toolchain选择自己所配置的新用户
+
+#### CMakeLists.txt如何配置
+
+```
+cmake_minimum_required(VERSION 3.13.2)
+project(pracCode CXX)
+find_package(MPI REQUIRED)
+set(ignoreMe "${CMAKE_C_COMPILER}")
+
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++17")
+set(SOURCE_FILES main.cpp)
+add_executable(pracCode ${SOURCE_FILES})
+```
+
+#### 编译运行
+
+示例见参考文献[3].
+
+编译如下：
+
+```
+$ mpicc -o mpi_hello_world main.cpp
+$ mpirun -n 4 ./mpi_hello_world
+#看到结果
+Hello world from processor paladin, rank 3 out of 4 processors
+Hello world from processor paladin, rank 0 out of 4 processors
+Hello world from processor paladin, rank 1 out of 4 processors
+Hello world from processor paladin, rank 2 out of 4 processors
+```
+
 ### 参考文献
 - [小土刀-OpenMP入门指南](https://wdxtub.com/2016/03/20/openmp-guide/)
 - [OpenMP on MacOS](https://iscinumpy.gitlab.io/post/omp-on-high-sierra/)
+- [About_OpenMPI](http://mpitutorial.com/tutorials/mpi-hello-world/zh_cn/)
