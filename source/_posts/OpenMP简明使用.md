@@ -7,8 +7,6 @@ tags:
     - parallel
 ---
 
-## OpenMP简明使用
-
 ### OpenMP安装
 
 ```
