@@ -39,6 +39,6 @@ tags:
 
 #### 参考文献
 
-- [karabiner-elements](http://newton.sh/2017/06/24/karabiner-elements/)
+- [karabiner-elements](http://newt0n.github.io/2017/06/24/karabiner-elements/)
 - [complex_modifications](https://pqrs.org/osx/karabiner/complex_modifications/)
 - [修饰键](https://sspai.com/post/39331)
