@@ -341,3 +341,27 @@ $ rm -fr !(*.bak)  ## 删除非*.bak的文件
 ```
 $ for i in `ls`; do mv -f $i `echo $i | sed 's/\.bak$//'`; done
 ```
+
+#### Tip.33 CentOS懒人安装py
+
+```
+$ yum install epel-release -y
+$ yum install https://centos7.iuscommunity.org/ius-release.rpm -y
+$ yum install python36u -y
+$ ln -s /bin/python3.6 /bin/python3
+$ yum install python36u-pip -y
+$ ln -s /bin/pip3.6 /bin/pip3
+```
+
+#### Tip.34 百度云命令上传/下载
+
+```
+$ pip3 install bypy --user
+$ bypy info
+
+$ bypy list                #显示文档
+$ bypy upload filename -v  #上传某文件，显示进度
+$ bypy -c                  #取消令牌文件。一段时间后要重新授权
+$ bypy downdir filename    #下载
+$ bypy compare             #比较本地目录和网盘目录
+```
