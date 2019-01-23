@@ -172,6 +172,10 @@ def rbf_network(double[:, :] X, double[:] beta, double theta):
 from distutils.core import setup, Extension
 from Cython.Build import cythonize
 from Cython.Distutils import build_ext
+import os
+
+os.environ["CC"] = "gcc-8"
+os.environ["CXX"] = "g++-8"
 
 # setup(
 #     ext_modules = cythonize(Extension(name="fib", sources=["cfib.c", "fib.pyx"]),
@@ -182,7 +186,9 @@ from Cython.Distutils import build_ext
 ext_modules=[Extension(name="fastloop",
                        sources=["fastloop.pyx"],
                        libraries=["m"],
-                       extra_compile_args=["-ffast-math"])]
+                       language='c',
+                       extra_compile_args=['-ffast-math','-fopenmp'],
+                       extra_link_args=['-fopenmp'],
 
 setup(
     name='fastloop',
@@ -305,4 +311,5 @@ clib.printf(c_char_p("Hello %d %f".encode('utf-8')),c_int(15),c_double(2.3))
 - [知乎-Python调用C](https://zhuanlan.zhihu.com/p/20152309)
 - [python基础小工具timeit](https://www.zybuluo.com/kingwhite/note/138504)
 - [加速python运行](https://python3-cookbook.readthedocs.io/zh_CN/latest/c14/p14_make_your_program_run_faster.html)
-- [python加速](http://www.idataskys.com/2018/04/14/python%E7%A7%91%E5%AD%A6%E8%AE%A1%E7%AE%97%E5%8A%A0%E9%80%9F/)
+- [python加速](http://www.idataskys.com/2018/04/14/python科学计算加速/)
+- [stackoverflow_fix_openmp](https://stackoverflow.com/questions/16737260/how-to-tell-distutils-to-use-gcc/16737674)
