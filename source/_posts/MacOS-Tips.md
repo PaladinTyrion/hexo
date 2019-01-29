@@ -365,3 +365,9 @@ $ bypy -c                  #取消令牌文件。一段时间后要重新授权
 $ bypy downdir filename    #下载
 $ bypy compare             #比较本地目录和网盘目录
 ```
+
+#### Tip.35 pip升级所有包
+
+```
+$ pip3 freeze --local | grep -v '^\-e' | cut -d = -f 1  | xargs pip3 install -U
+```
