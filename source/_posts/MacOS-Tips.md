@@ -371,3 +371,9 @@ $ bypy compare             #比较本地目录和网盘目录
 ```
 $ pip3 freeze --local | grep -v '^\-e' | cut -d = -f 1  | xargs pip3 install -U
 ```
+
+#### Tip.36 修复pip丢失
+
+```
+$ curl https://bootstrap.pypa.io/get-pip.py | sudo python
+```
