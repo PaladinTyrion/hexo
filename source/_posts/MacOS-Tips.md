@@ -377,3 +377,15 @@ $ pip3 freeze --local | grep -v '^\-e' | cut -d = -f 1  | xargs pip3 install -U
 ```
 $ curl https://bootstrap.pypa.io/get-pip.py | sudo python
 ```
+
+#### Tip.37 安装本地python包项目
+
+```
+$ pip3 install git+https://github.com/xxxxx/xxxx.git@master
+# or
+$ python3 setup.py install
+```
+
+### 参考文献
+
+- [python3安装第三方包](https://www.jianshu.com/p/9acc85d0ff16)
