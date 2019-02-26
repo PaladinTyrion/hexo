@@ -67,3 +67,12 @@ $ yum install policycoreutils-2.5-11.el7_3.x86_64
 或者
 $ yum update && yum install/upgrade policycoreutils
 ```
+
+#### yum更新出现依赖冲突时的解决方案
+
+```
+$ yum install yum-utils
+$ package-cleanup --dupes
+$ package-cleanup --cleandupes
+$ yum clean all && yum update
+```
