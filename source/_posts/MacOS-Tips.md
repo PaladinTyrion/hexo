@@ -386,6 +386,20 @@ $ pip3 install git+https://github.com/xxxxx/xxxx.git@master
 $ python3 setup.py install
 ```
 
+#### Tip.38 限制允许sshd连接的ip
+
+```
+$ vim /etc/hosts.allow
+sshd:10.10.10.*:allow
+
+$ vim /etc/hosts.deny
+sshd:11.11.11.*:deny
+
+$ service sshd restart
+```
+
+至于经常sshd无法启动，一般会发现是因为默认22端口已被bind，sshd_config配置一个新的连接端口即可。
+
 ### 参考文献
 
 - [python3安装第三方包](https://www.jianshu.com/p/9acc85d0ff16)
