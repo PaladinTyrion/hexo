@@ -2,7 +2,6 @@
 title: Raft
 date: 2017-09-10 18:21:59
 categories: 一致性
-type: "tags"
 tags: 
   - 一致性
 ---

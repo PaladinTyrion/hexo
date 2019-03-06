@@ -2,7 +2,6 @@
 title: Filco67Key使用体验
 date: 2017-12-15 02:05:51
 categories: 周边
-type: "tags"
 tags:
   - 周边
 ---

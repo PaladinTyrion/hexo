@@ -2,7 +2,6 @@
 title: Paxos_and_Zookeeper
 date: 2017-09-10 18:20:23
 categories: 一致性
-type: "tags"
 tags: 
   - 一致性
 ---

@@ -2,7 +2,6 @@
 title: HHKB使用体验
 date: 2017-11-13 02:40:53
 categories: 周边
-type: "tags"
 tags:
   - 周边
 ---

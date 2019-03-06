@@ -2,7 +2,6 @@
 title: MacOS_Tips
 date: 2017-09-10 18:07:17
 categories: tips
-type: "tags"
 tags:
   - 小技能
 ---

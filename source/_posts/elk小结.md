@@ -2,7 +2,6 @@
 title: elk小结
 date: 2017-10-31 00:42:48
 categories: framework
-type: "tags"
 tags:
   - elk
 ---

@@ -2,7 +2,6 @@
 title: Spark_standalone
 date: 2017-09-10 18:09:27
 categories: data
-type: "tags"
 tags: 
   - spark
 ---

@@ -2,7 +2,6 @@
 title: docker-mesos-demo
 date: 2017-09-10 18:40:59
 categories: system
-type: "tags"
 tags: 
   - mesos
 ---

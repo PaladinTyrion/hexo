@@ -2,7 +2,6 @@
 title: Hive
 date: 2017-09-10 18:24:14
 categories: data
-type: "tags"
 tags: 
   - hive
 ---

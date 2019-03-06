@@ -2,7 +2,6 @@
 title: grpc
 date: 2017-09-10 18:28:35
 categories: rpc
-type: "tags"
 tags: 
   - rpc
 ---

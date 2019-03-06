@@ -2,7 +2,6 @@
 title: Aws-ssr
 date: 2018-04-02 00:14:38
 categories: tools
-type: "tags"
 tags: 
   - ANTI-GFW
 ---

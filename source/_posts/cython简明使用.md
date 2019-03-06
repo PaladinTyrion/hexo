@@ -2,7 +2,6 @@
 title: cython简明使用
 date: 2019-01-04 14:11:32
 categories: python
-type: "tags"
 tags:
     - python
 ---

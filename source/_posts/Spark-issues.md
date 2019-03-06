@@ -2,7 +2,6 @@
 title: Spark_issues
 date: 2017-09-10 18:17:55
 categories: issues
-type: "tags"
 tags: 
   - spark
 ---

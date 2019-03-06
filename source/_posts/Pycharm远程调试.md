@@ -2,7 +2,6 @@
 title: Pycharm远程调试
 date: 2019-01-09 17:38:30
 categories: IDE
-type: "tags"
 tags:
     - pycharm
 ---

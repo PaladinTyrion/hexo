@@ -2,7 +2,6 @@
 title: docker-mesos-spark
 date: 2017-09-10 18:36:18
 categories: system
-type: "tags"
 tags: 
   - mesos
 ---

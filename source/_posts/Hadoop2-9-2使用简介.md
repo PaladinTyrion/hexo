@@ -2,7 +2,6 @@
 title: Hadoop2.9.2使用简介
 date: 2019-03-06 11:38:49
 categories: hadoop
-type: "tags"
 tags:
   - hadoop
 ---

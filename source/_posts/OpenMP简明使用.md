@@ -2,7 +2,6 @@
 title: OpenMP简明使用
 date: 2018-12-27 11:16:32
 categories: parallel
-type: "tags"
 tags:
     - parallel
 ---

@@ -2,7 +2,6 @@
 title: nfs挂载
 date: 2017-09-16 16:21:29
 categories: OS
-type: "tags"
 tags: 
   - Centos
   - Nfs

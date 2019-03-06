@@ -2,7 +2,6 @@
 title: opentsdb dev
 date: 2018-04-27 01:16:34
 categories: tsdb
-type: "tags"
 tags:
   - opentsdb
 ---

@@ -2,7 +2,6 @@
 title: elk技术要点
 date: 2017-11-20 11:50:50
 categories: framework
-type: "tags"
 tags:
   - elk
 ---

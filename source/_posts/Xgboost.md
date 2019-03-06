@@ -2,7 +2,6 @@
 title: Xgboost
 date: 2017-09-10 18:26:26
 categories: deeplearning
-type: "tags"
 tags: 
   - 机器学习
 ---
