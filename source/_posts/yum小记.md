@@ -2,6 +2,7 @@
 title: yum小记
 date: 2017-09-14 19:42:53
 categories: OS
+type: "tags"
 tags: 
   - Linux
   - Centos

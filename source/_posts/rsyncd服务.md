@@ -2,6 +2,7 @@
 title: rsyncd服务
 date: 2018-07-30 15:58:39
 categories: Tools
+type: "tags"
 tags:
   - Tools
 ---

@@ -400,6 +400,15 @@ $ service sshd restart
 
 至于经常sshd无法启动，一般会发现是因为默认22端口已被bind，sshd_config配置一个新的连接端口即可。
 
+#### Tip.39 Centos设置防火墙80/8080端口的权限
+
+```
+$ firewall-cmd --zone=public --add-port=80/tcp[--add-port=8080/tcp] --permanent
+$ systemctl stop firewalld.service && systemctl start firewalld.service (or $ firewall-cmd --reload)
+## 删除端口
+$ firewall-cmd --zone=public --remove-port=80/tcp --permanent && firewall-cmd --reload
+```
+
 ### 参考文献
 
 - [python3安装第三方包](https://www.jianshu.com/p/9acc85d0ff16)

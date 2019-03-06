@@ -2,6 +2,7 @@
 title: centos升级docker版本
 date: 2018-06-04 14:21:21
 categories: docker
+type: "tags"
 tags:
   - Centos
   - Docker
