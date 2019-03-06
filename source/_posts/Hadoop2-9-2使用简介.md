@@ -19,6 +19,8 @@ tags:
 - 10.16.10.2 hadoop2
 - 10.16.10.3 hadoop3
 
+<!-- more -->
+
 #### SSH环境
 
 集群所有机器ssh互相免密登陆，设置略。ssh端口可以自己设置，并在hadoop-env.sh中export HADOOP_SSH_OPTS="-p $ssh_port"
