@@ -176,7 +176,7 @@ hadoop3
 
 ### 说明
 
-#### 环境变量调用路径：
+#### 环境变量调用路径
 
 - HADOOP_HEAPSIZE: hadoop -> hadoop-config.sh -> hadoop-env.sh
 - hdfs -> hdfs-config.sh -> hadoop-config.sh -> hadoop-env.sh
