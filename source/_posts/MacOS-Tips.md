@@ -406,6 +406,12 @@ $ firewall-cmd --zone=public --add-port=80/tcp[--add-port=8080/tcp] --permanent
 $ systemctl stop firewalld.service && systemctl start firewalld.service (or $ firewall-cmd --reload)
 ## 删除端口
 $ firewall-cmd --zone=public --remove-port=80/tcp --permanent && firewall-cmd --reload
+## 设置部分ip允许权限
+$ firewall-cmd --permanent --add-rich-rule="rule family='ipv4' source address='10.88.0.0/16[10.88.88.0/24]' protocol='tcp' accept" && firewall-cmd --reload
+## 查看zone配置
+$ firewall-cmd --list-all
+$ firewall-cmd --list-all-zones
+
 ```
 
 ### 参考文献
