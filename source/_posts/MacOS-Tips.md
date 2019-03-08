@@ -413,6 +413,12 @@ $ firewall-cmd --list-all
 $ firewall-cmd --list-all-zones
 ```
 
+#### Tip.40 history命令显示命令时间信息
+
+```
+$ export HISTTIMEFORMAT='%F %T '
+```
+
 ### 参考文献
 
 - [python3安装第三方包](https://www.jianshu.com/p/9acc85d0ff16)
