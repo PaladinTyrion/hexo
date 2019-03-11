@@ -141,7 +141,7 @@ export JAVA_HOME=/usr/lib/jvm/java-1.8.0-openjdk-1.8.0.191.b12-1.el7_6.x86_64/jr
     </property>
     <property>
 	<name>mapreduce.task.io.sort.mb</name>
-	<value>512</value>
+	<value>256</value>
     </property>
     <property>
 	<name>mapreduce.task.io.sort.factor</name>
@@ -154,6 +154,14 @@ export JAVA_HOME=/usr/lib/jvm/java-1.8.0-openjdk-1.8.0.191.b12-1.el7_6.x86_64/jr
     <property>
         <name>mapreduce.reduce.java.opts</name>
         <value>-Xmx3584m</value>
+    </property>
+    <property>
+        <name>mapreduce.reduce.input.buffer.percent</name>
+        <value>0.0</value>
+    </property>
+    <property>
+        <name>mapreduce.reduce.shuffle.input.buffer.percent</name>
+        <value>0.9</value>
     </property>
     <property>
         <name>mapreduce.jobhistory.address</name>
