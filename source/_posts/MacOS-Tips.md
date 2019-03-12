@@ -419,6 +419,12 @@ $ firewall-cmd --list-all-zones
 $ export HISTTIMEFORMAT='%F %T '
 ```
 
+#### Tip.41 Mysql更改连接权限
+
+```
+> GRANT ALL PRIVILEGES ON *.* TO 'root[$user]'@'%[$ip]' IDENTIFIED BY 'tyrion[$password]' WITH GRANT OPTION;
+```
+
 ### 参考文献
 
 - [python3安装第三方包](https://www.jianshu.com/p/9acc85d0ff16)
