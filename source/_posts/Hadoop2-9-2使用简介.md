@@ -73,6 +73,14 @@ export JAVA_HOME=/usr/lib/jvm/java-1.8.0-openjdk-1.8.0.191.b12-1.el7_6.x86_64/jr
         <value>1048576</value>
     </property>
     <property>
+        <name>fs.trash.interval</name>
+        <value>1440</value>
+    </property>
+    <property>
+        <name>fs.trash.checkpoint.interval</name>
+        <value>1440</value>
+    </property>
+    <property>
         <name>hadoop.proxyuser.root.hosts</name>
         <value>*</value>
     </property>
