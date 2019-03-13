@@ -423,6 +423,7 @@ $ export HISTTIMEFORMAT='%F %T '
 
 ```
 > GRANT ALL PRIVILEGES ON *.* TO 'root[$user]'@'%[$ip]' IDENTIFIED BY 'tyrion[$password]' WITH GRANT OPTION;
+> FLUSH PRIVILEGES;
 ```
 
 ### 参考文献
