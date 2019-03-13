@@ -184,7 +184,10 @@ HiveServer1 | jdbc:hive:// | org.apache.hadoop.hive.jdbc.HiveDriver
 - JDBC连接前需要服务器开启hiveserver/hiveserver2服务才支持JDBC连接
 
 ```
-$ nohup hive --service hiveserver2 -p 10002 > /dev/null 2>&1
+$ hive --service hiveserver2 &
+$ hive --service metastore &
+# 在本机访问时不填写host:port,否则应为jdbc:hive2://$ip:10000
+$ beeline -u jdbc:hive2://
 ```
 
 - 遇到的问题，有时候jdbc连接问题:
