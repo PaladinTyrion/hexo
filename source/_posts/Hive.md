@@ -36,7 +36,7 @@ Hive配置：
 <configuration>
     <property>
         <name>javax.jdo.option.ConnectionURL</name>
-        <value>jdbc:mysql://localhost:3306/hive?createDatabaseIfNotExist=true</value>
+        <value>jdbc:mysql://0.0.0.0:3396/hive?createDatabaseIfNotExist=true</value>
         <description>JDBC connect string for a JDBC metastore</description>
     </property>
     <property>
@@ -51,31 +51,23 @@ Hive配置：
     </property>
     <property>
         <name>javax.jdo.option.ConnectionPassword</name>
-        <value>123456</value>
+        <value>tyrion</value>
         <description>password to use against metastore database</description>
     </property>
     <property>
-        <name>datanucleus.autoCreateSchema</name>
-        <value>true</value>
-    </property>
-    <property>
-        <name>datanucleus.autoCreateTables</name>
-        <value>true</value>
-    </property>
-    <property>
-        <name>datanucleus.autoCreateColumns</name>
+        <name>hive.metastore.schema.verification</name>
         <value>true</value>
     </property>
     <!-- 设置 hive仓库的HDFS上的位置 -->
     <property>
         <name>hive.metastore.warehouse.dir</name>
-        <value>/hive</value>
+        <value>/user/hive/warehouse</value>
         <description>location of default database for the warehouse</description>
     </property>
     <!--资源临时文件存放位置 -->
     <property>
         <name>hive.downloaded.resources.dir</name>
-        <value>/to/the/path/hivedata/tmp/resources</value>
+        <value>${system:java.io.tmpdir}/${hive.session.id}_resources</value>
         <description>Temporary local directory for added resources in the remote file system.</description>
      </property>
      <!-- Hive在0.9版本之前需要设置hive.exec.dynamic.partition为true, Hive在0.9版本之后默认为true -->
@@ -90,43 +82,28 @@ Hive配置：
     <!-- 修改日志位置 -->
     <property>
         <name>hive.exec.local.scratchdir</name>
-        <value>/to/the/path/hivedata/tmp/HiveJobsLog</value>
+        <value>${system:java.io.tmpdir}/${system:user.name}</value>
         <description>Local scratch space for Hive jobs</description>
     </property>
     <property>
-        <name>hive.downloaded.resources.dir</name>
-        <value>/to/the/path/hivedata/tmp/ResourcesLog</value>
-        <description>Temporary local directory for added resources in the remote file system.</description>
+        <name>hive.exec.scratchdir</name>
+        <value>/tmp/hive</value>
+        <description>HDFS root scratch dir for Hive jobs which gets created with write all (733) permission. For each connecting user, an HDFS scratch dir: ${hive.exec.scratchdir}/&lt;username&gt; is created, with ${hive.scratch.dir.permission}.</description>
     </property>
     <property>
         <name>hive.querylog.location</name>
-        <value>/to/the/path/hivedata/tmp/HiveRunLog</value>
+        <value>${system:java.io.tmpdir}/${system:user.name}</value>
         <description>Location of Hive run time structured log file</description>
     </property>
     <property>
         <name>hive.server2.logging.operation.log.location</name>
-        <value>/to/the/path/hivedata/tmp/OpertitionLog</value>
+        <value>${system:java.io.tmpdir}/${system:user.name}/operation_logs</value>
         <description>Top level directory where operation tmp are stored if logging functionality is enabled</description>
     </property>
-    <!-- 配置HWI接口 -->
-    <property>
-        <name>hive.hwi.war.file</name>
-        <value>/to/the/path/hiveInstalled/lib/hive-hwi-2.1.0.jar</value>
-        <description>This sets the path to the HWI war file, relative to ${HIVE_HOME}. </description>
-    </property>
-    <property>
-        <name>hive.hwi.listen.host</name>
-        <value>hostname</value>
-        <description>This is the host address the Hive Web Interface will listen on</description>
-    </property>
-    <property>
-        <name>hive.hwi.listen.port</name>
-        <value>9999</value>
-        <description>This is the port the Hive Web Interface will listen on</description>
-    </property>
+    <!-- 配置server2.thrift -->
     <property>
         <name>hive.server2.thrift.bind.host</name>
-        <value>hostname</value>
+        <value>0.0.0.0</value>
     </property>
     <property>
         <name>hive.server2.thrift.port</name>
@@ -140,31 +117,51 @@ Hive配置：
         <name>hive.server2.thrift.http.path</name>
         <value>cliservice</value>
     </property>
+    <property>
+    	<name>hive.metastore.uris</name>
+    	<value>thrift://0.0.0.0:9083</value>
+    	<description>Thrift URI for the remote metastore. Used by metastore client to connect to remote metastore.</description>
+    </property>
     <!-- HiveServer2的WEB UI -->
     <property>
         <name>hive.server2.webui.host</name>
-        <value>hostname</value>
+        <value>0.0.0.0</value>
     </property>
     <property>
         <name>hive.server2.webui.port</name>
         <value>10002</value>
     </property>
     <property>
+    	<name>hive.server2.webui.max.threads</name>
+    	<value>30</value>
+    	<description>The max HiveServer2 WebUI threads</description>
+    </property>
+    <property>
         <name>hive.scratch.dir.permission</name>
         <value>755</value>
     </property>
-    <!-- 下面hive.aux.jars.path这个属性里面你这个jar包地址如果是本地的记住前面要加file://不然找不到, 而且会报org.apache.hadoop.hive.contrib.serde2.RegexSerDe错误 -->
-    <property>
-        <name>hive.aux.jars.path</name>
-        <value>file:///to/the/path/sparkInstalled/lib/spark-assembly-2.0.1-hadoop2.7.2.jar</value>
-    </property>
     <property>
         <name>hive.server2.enable.doAs</name>
-        <value>false</value>
+        <value>true</value>
     </property>
     <property>
         <name>hive.auto.convert.join</name>
-        <value>false</value>
+        <value>true</value>
+    </property>
+    <property>
+    	<name>hive.optimize.dynamic.partition.hashjoin</name>
+    	<value>true</value>
+    	<description>Whether to enable dynamically partitioned hash join optimization.
+      		This setting is also dependent on enabling hive.auto.convert.join
+    	</description>
+    </property>
+    <property>
+    	<name>hive.vectorized.execution.mapjoin.native.fast.hashtable.enabled</name>
+    	<value>true</value>
+    	<description>
+      	    This flag should be set to true to enable use of native fast vector map join hash tables in
+      	    queries using MapJoin.
+    	</description>
     </property>
 </configuration>
 ```
