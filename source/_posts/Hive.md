@@ -168,6 +168,8 @@ Hive配置：
 
 初始化元数据存储:
 
+用mysql会遇到执行失败，一般报错是JDBC组件not found。解决方案是自己去下个mysql-connector-java-8.0.15.jar之类的mysql JDBC jar包放到$HIVE_HOME/lib里。
+
 ```
 $ schematool --dbType mysql --initSchema
 ```
@@ -187,6 +189,7 @@ HiveServer1 | jdbc:hive:// | org.apache.hadoop.hive.jdbc.HiveDriver
 $ hive --service hiveserver2 &
 $ hive --service metastore &
 # 在本机访问时不填写host:port,否则应为jdbc:hive2://$ip:10000
+# 远程访问时，需要hadoop core-site中配置过hadoop.proxyuser.xxx.hosts/groups项。
 $ beeline -u jdbc:hive2://
 ```
 
