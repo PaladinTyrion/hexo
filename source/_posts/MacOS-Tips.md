@@ -35,6 +35,7 @@ $ softwareupdate --install -a   #升级all CommandLineTools
 
 ```
 $ sudo scutil --set HostName yourhostname       #MacOS
+$ hostnamectl set-hostname <newhostname>        #Linux
 $ hostname      #查看输出是否生效
 ```
 
