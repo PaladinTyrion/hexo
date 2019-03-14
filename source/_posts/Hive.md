@@ -211,6 +211,21 @@ $ beeline -u jdbc:hive2://  #beeline -u jdbc:hive2://10.10.10.10:10000
 
 - 当Hive是EXTERNAL建表时候，命令执行后的meta信息保存在hive-site.xml指定的mysql或者derby中，数据保存在建表语句location指定的hdfs地址中。EXTERNAL建表无法truncate，但可以drop，drop会删除meta信息，但仍然不会删除hdfs中的内容，hdfs的内容仍需手动hadoop命令删除
 
+- metastore的使用方法
+
+metastore可以meta server机器起，远程连接meta服务。
+
+假设server1已经通过```hive --service metastore -p 9803```启动了metastore服务，server2的hive-site.xml只需配置如下，即可远程连接server1的metastore服务。当mysql+metastore为远程服务时可这样配置。
+
+```
+<configuration>
+    <property>
+       <name>hive.metastore.uris</name>
+       <value>thrift://server1:9083</value><!-- 此处是服务器1的ip -->
+    </property>
+</configuration>
+```
+
 - 参考资料:
     1. http://blog.csdn.net/gamer_gyt/article/details/52062460
     2. http://blog.csdn.net/sunnyyoona/article/details/51648871
