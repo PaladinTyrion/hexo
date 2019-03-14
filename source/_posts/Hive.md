@@ -215,7 +215,7 @@ $ beeline -u jdbc:hive2://  #beeline -u jdbc:hive2://10.10.10.10:10000
 
 metastore可以meta server机器起，远程连接meta服务。
 
-假设server1已经通过```hive --service metastore -p 9803```启动了metastore服务，server2的hive-site.xml只需配置如下，即可远程连接server1的metastore服务。当mysql+metastore为远程服务时可这样配置。
+假设server1已经通过**hive --service metastore -p 9803**启动了metastore服务，server2的hive-site.xml只需配置如下，即可远程连接server1的metastore服务。当mysql+metastore为远程服务时可这样配置。
 
 ```
 <configuration>
