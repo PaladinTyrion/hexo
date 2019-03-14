@@ -36,7 +36,7 @@ Hive配置：
 <configuration>
     <property>
         <name>javax.jdo.option.ConnectionURL</name>
-        <value>jdbc:mysql://0.0.0.0:3396/hive?createDatabaseIfNotExist=true</value>
+        <value>jdbc:mysql://0.0.0.0:3396/hive?createDatabaseIfNotExist=true&amp;useUnicode=true&amp;characterEncoding=UTF-8</value>
         <description>JDBC connect string for a JDBC metastore</description>
     </property>
     <property>
@@ -186,11 +186,11 @@ HiveServer1 | jdbc:hive:// | org.apache.hadoop.hive.jdbc.HiveDriver
 - JDBC连接前需要服务器开启hiveserver/hiveserver2服务才支持JDBC连接
 
 ```
-$ hive --service hiveserver2 &
-$ hive --service metastore &
+$ nohup hive --service hiveserver2 >> hiveserv.log 2>&1 &
+$ nohup hive --service metastore >> hivemeta.log 2>&1 &
 # 在本机访问时不填写host:port,否则应为jdbc:hive2://$ip:10000
 # 远程访问时，需要hadoop core-site中配置过hadoop.proxyuser.xxx.hosts/groups项。
-$ beeline -u jdbc:hive2://
+$ beeline -u jdbc:hive2://  #beeline -u jdbc:hive2://10.10.10.10:10000
 ```
 
 - 遇到的问题，有时候jdbc连接问题:
@@ -206,3 +206,85 @@ $ beeline -u jdbc:hive2://
 - 参考资料:
     1. http://blog.csdn.net/gamer_gyt/article/details/52062460
     2. http://blog.csdn.net/sunnyyoona/article/details/51648871
+
+--- 
+
+- 附录资料：
+
+Mysql神器脚本：
+
+```
+-- mysql.fix.utf8.sql
+-- 先use相应的 database。执行失败的地方略过继续往下执行
+alter database hive default character set utf8;
+alter table BUCKETING_COLS default character set utf8;
+alter table CDS default character set utf8;
+alter table COLUMNS_V2 default character set utf8;
+alter table DATABASE_PARAMS default character set utf8;
+alter table DBS default character set utf8;
+alter table FUNCS default character set utf8;
+alter table FUNC_RU default character set utf8;
+alter table GLOBAL_PRIVS default character set utf8;
+alter table PARTITIONS default character set utf8;
+alter table PARTITION_KEYS default character set utf8;
+alter table PARTITION_KEY_VALS default character set utf8;
+alter table PARTITION_PARAMS default character set utf8;
+-- alter table PART_COL_STATS default character set utf8;
+alter table ROLES default character set utf8;
+alter table SDS default character set utf8;
+alter table SD_PARAMS default character set utf8;
+alter table SEQUENCE_TABLE default character set utf8;
+alter table SERDES default character set utf8;
+alter table SERDE_PARAMS default character set utf8;
+alter table SKEWED_COL_NAMES default character set utf8;
+alter table SKEWED_COL_VALUE_LOC_MAP default character set utf8;
+alter table SKEWED_STRING_LIST default character set utf8;
+alter table SKEWED_STRING_LIST_VALUES default character set utf8;
+alter table SKEWED_VALUES default character set utf8;
+alter table SORT_COLS default character set utf8;
+alter table TABLE_PARAMS default character set utf8;
+alter table TAB_COL_STATS default character set utf8;
+alter table TBLS default character set utf8;
+alter table VERSION default character set utf8;
+alter table BUCKETING_COLS convert to character set utf8;
+alter table CDS convert to character set utf8;
+alter table COLUMNS_V2 convert to character set utf8;
+alter table DATABASE_PARAMS convert to character set utf8;
+alter table DBS convert to character set utf8;
+alter table FUNCS convert to character set utf8;
+alter table FUNC_RU convert to character set utf8;
+alter table GLOBAL_PRIVS convert to character set utf8;
+alter table PARTITIONS convert to character set utf8;
+alter table PARTITION_KEYS convert to character set utf8;
+alter table PARTITION_KEY_VALS convert to character set utf8;
+alter table PARTITION_PARAMS convert to character set utf8;
+-- alter table PART_COL_STATS convert to character set utf8;
+alter table ROLES convert to character set utf8;
+alter table SDS convert to character set utf8;
+alter table SD_PARAMS convert to character set utf8;
+alter table SEQUENCE_TABLE convert to character set utf8;
+alter table SERDES convert to character set utf8;
+alter table SERDE_PARAMS convert to character set utf8;
+alter table SKEWED_COL_NAMES convert to character set utf8;
+alter table SKEWED_COL_VALUE_LOC_MAP convert to character set utf8;
+alter table SKEWED_STRING_LIST convert to character set utf8;
+alter table SKEWED_STRING_LIST_VALUES convert to character set utf8;
+alter table SKEWED_VALUES convert to character set utf8;
+alter table SORT_COLS convert to character set utf8;
+alter table TABLE_PARAMS convert to character set utf8;
+alter table TAB_COL_STATS convert to character set utf8;
+alter table TBLS convert to character set utf8;
+alter table VERSION convert to character set utf8;
+-- alter table PART_COL_STATS convert to character set utf8;
+SET character_set_client = utf8 ;
+-- SET character_set_connection = utf8 ;
+-- alter table PART_COL_STATS convert to character set utf8;
+SET character_set_database = utf8 ;
+SET character_set_results = utf8 ;
+SET character_set_server = utf8 ;
+-- SET collation_connection = utf8 ;
+-- SET collation_database = utf8 ;
+-- SET collation_server = utf8 ;
+SET NAMES 'utf8';
+SET NAMES 'utf8';
+```

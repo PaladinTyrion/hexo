@@ -423,6 +423,8 @@ $ export HISTTIMEFORMAT='%F %T '
 #### Tip.41 Mysql更改连接权限
 
 ```
+# 顺便修改配置密码
+> UPDATE user SET password=PASSWORD("tyrion") WHERE user='root';
 > GRANT ALL PRIVILEGES ON *.* TO 'root[$user]'@'%[$ip]' IDENTIFIED BY 'tyrion[$password]' WITH GRANT OPTION;
 > FLUSH PRIVILEGES;
 ```
