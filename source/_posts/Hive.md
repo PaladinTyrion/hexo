@@ -176,6 +176,14 @@ $ schematool --dbType mysql --initSchema
 
 ##### 注意：
 
+- Mysql中要创建相应配置的JDBC连接用户(如hive用户，也可以使用root用户)
+
+```
+CREATE USER 'hive'@'%' IDENTIFIED BY 'password';
+GRANT ALL PRIVILEGES ON *.* TO 'hive'@'%' WITH GRANT OPTION;
+flush privileges;
+```
+
 - Hiveserver1和Hiveserver2的JDBC区别：
 
 HiveServer version |  Connection URL | Driver Class
