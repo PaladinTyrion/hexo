@@ -168,3 +168,5 @@ $ $FLINK_HOME/bin/start-cluster.sh
 - [Flink架构及工作原理介绍](http://lionheartwang.github.io/blog/2018/03/05/flink-framwork-introduction/)
 - [Flink设计说明](https://github.com/liguohua-bigdata/simple-flink/tree/master/book)
 - [Flink官网配置](https://ci.apache.org/projects/flink/flink-docs-release-1.7/ops/config.html)
+- [Flink三种搭建方式](http://www.cnblogs.com/frankdeng/p/9400627.html)
+
