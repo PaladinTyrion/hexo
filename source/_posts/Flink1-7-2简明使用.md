@@ -6,11 +6,15 @@ tags:
   - flink
 ---
 
-## Flink依赖环境
+### Flink依赖环境
 
-### 安装java-1.8.0-openjdk，过程略
+#### java
 
-### 配置ssh可免密互访，过程略
+安装java-1.8.0-openjdk，过程略
+
+#### ssh
+
+配置ssh可免密互访，过程略
 
 为了防止ssh的22端口被占用，一般可以自己重启一个sshd，关注/etc下的配置文件
 
@@ -38,24 +42,28 @@ $ ssh -v root@kafka2 -p 2222 #开client，-v表示输出打印栈信息
 
 <!-- more -->
 
-### 提前配置好远程hadoop集群，假设namenode为hdfs://10.99.99.1:9000，配置过程略
+#### hadoop集群
 
-### 提前配置好zk集群，假设zk集群10.99.98.1:2181,10.99.98.2:2181,10.99.98.3:2181，配置过程略
+提前配置好远程hadoop集群，假设namenode为hdfs://10.99.99.1:9000，配置过程略
 
-## FLink配置及启动
+#### zookeeper集群
 
-### 节点信息及角色分配
+提前配置好zk集群，假设zk集群10.99.98.1:2181,10.99.98.2:2181,10.99.98.3:2181，配置过程略
+
+### FLink配置及启动
+
+#### 节点信息及角色分配
 
 下载flink-1.7.2-bin-hadoop28-scala_2.12.tgz，选用hadoop版本主要是为了支持hdfs连接，元信息及checkpoint需要hdfs，否则选用nfs也可以，但hdfs更好。另外flink-1.7.2-bin-scala_2.12.tgz仅支持single jobmanager，所以弃用。
 
-### 配置环境变量
+#### 配置环境变量
 
 ```
 $ export FLINK_HOME=/to/flink/path
 $ export PATH=$PATH:$FLINK_HOME/bin
 ```
 
-### 配置/etc/hosts
+#### 配置/etc/hosts
 
 ```
 # 假设5台机器，3个zk，3个jobmanager，5个taskmanager
@@ -66,11 +74,11 @@ $ export PATH=$PATH:$FLINK_HOME/bin
 10.10.10.5   flink5
 ```
 
-### flink配置文件
+#### flink配置文件
 
 需要修改conf下的masters，slaves，flink-conf.yaml，修改bin/config.sh
 
-#### flink1.7.2/bin/config.sh
+##### flink1.7.2/bin/config.sh
 
 ```
 # 添加下面两个
@@ -78,7 +86,7 @@ export FLINK_SSH_OPTS="-p 26387"
 export JAVA_HOME="/usr/lib/jvm/jre-1.8.0-openjdk"
 ```
 
-#### flink1.7.2/conf/masters
+##### flink1.7.2/conf/masters
 
 ```
 flink1:8081
@@ -86,7 +94,7 @@ flink2:8081
 flink3:8081
 ```
 
-#### flink1.7.2/conf/slaves
+##### flink1.7.2/conf/slaves
 
 ```
 flink1
@@ -96,7 +104,7 @@ flink4
 flink5
 ```
 
-#### flink1.7.2/conf/flink-conf.yaml
+##### flink1.7.2/conf/flink-conf.yaml
 
 ```
 env.java.home: /usr/lib/jvm/jre-1.8.0-openjdk
@@ -149,12 +157,12 @@ historyserver.archive.fs.refresh-interval: 10000
 historyserver.web.tmpdir: /data0/flink/tmp
 ```
 
-### Flink启动
+#### Flink启动
 
 ```
 $ $FLINK_HOME/bin/start-cluster.sh
 ```
 
-## 参考文献
+### 参考文献
 
 - [Flink架构及工作原理介绍](http://lionheartwang.github.io/blog/2018/03/05/flink-framwork-introduction/)
