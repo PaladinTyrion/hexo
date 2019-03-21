@@ -104,7 +104,7 @@ env.log.dir: /data0/flink/log
 
 #jobmanager.rpc.address: 0.0.0.0    #不要配置，ha mode此项无效，此项仅在flink only的single jobmanager情况下work
 #jobmanager.rpc.port: 6123     #不要配置，ha mode此项无效，此项仅在flink only的single jobmanager情况下work
-jobmanager.heap.size: 2048m    #主要负责任务调度，与Client和TaskManager交互，Client将JobGraph提交给JobManager，然后其将JobGraph转换为ExecutionGraph，并分发到TaskManager上执行(也就是负责执行计划生成，并把task下发到taskmanager，并监控任务执行)
+jobmanager.heap.size: 2048m    #主要负责调度Task、协调检查点、协调失效恢复，与Client和TaskManager交互，Client将JobGraph提交给JobManager，然后其将JobGraph转换为ExecutionGraph，并分发到TaskManager上执行(也就是负责执行计划生成，并把task下发到taskmanager，并监控任务执行)
 taskmanager.heap.size: 16384m   #tm堆内存
 taskmanager.numberOfTaskSlots: 8  #每个slot可以分得2g内存
 parallelism.default: 2
