@@ -429,6 +429,12 @@ $ export HISTTIMEFORMAT='%F %T '
 > FLUSH PRIVILEGES;
 ```
 
+#### Tip.42 Linux查看缓存行大小
+
+```
+$ cat /sys/devices/system/cpu/cpu0/cache/index0/coherency_line_size
+```
+
 ### 参考文献
 
 - [python3安装第三方包](https://www.jianshu.com/p/9acc85d0ff16)
