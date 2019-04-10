@@ -435,6 +435,13 @@ $ export HISTTIMEFORMAT='%F %T '
 $ cat /sys/devices/system/cpu/cpu0/cache/index0/coherency_line_size
 ```
 
+#### Tip.43 Linux jmap命令报错
+
+```
+## 问题往往是debuginfo没有安装
+$ yum --enablerepo="*-debug*" install java-1.8.0-openjdk-debuginfo -y
+```
+
 ### 参考文献
 
 - [python3安装第三方包](https://www.jianshu.com/p/9acc85d0ff16)
