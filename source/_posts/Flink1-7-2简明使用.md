@@ -124,6 +124,7 @@ high-availability.zookeeper.quorum: 10.99.98.1:2181,10.99.98.2:2181,10.99.98.3:2
 high-availability.zookeeper.path.root: /flink  #zk的存储根路径
 high-availability.cluster-id: /cluster_one
 high-availability.zookeeper.client.acl: open
+zookeeper.sasl.disable: true   #以前默认true，1.7.x默认false，需要改
 
 state.backend: filesystem   #可选'jobmanager', 'filesystem', 'rocksdb'，其中'jobmanager'就是把状态信息都存在jobmanager堆内存中
 state.checkpoints.dir: hdfs://10.99.99.1:9000/flink/checkpoints/
@@ -132,6 +133,7 @@ state.backend.incremental: false  #rocksdb可以设为true
 state.checkpoints.num-retained: 1
 
 rest.address: 0.0.0.0
+rest.bind-address: 0.0.0.0
 web.address: 0.0.0.0
 web.tmpdir: /data0/flink/tmp
 rest.port: 8081
