@@ -134,6 +134,7 @@ state.checkpoints.num-retained: 1
 
 rest.address: 0.0.0.0
 rest.bind-address: 0.0.0.0
+rest.bind-port: 8081
 web.address: 0.0.0.0
 web.tmpdir: /data0/flink/tmp
 rest.port: 8081
