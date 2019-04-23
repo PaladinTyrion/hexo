@@ -466,7 +466,8 @@ grant codebase "file:${java.home}/../lib/tools.jar" {
 
 ## jstatd如何启动：没啥好解释的，visualvm可用jstatd远程监控内存gc，真是神器！
 ## 必要时java.security.policy可以使用绝对路径指定
-$ jstatd -J-Djava.security.policy=jstatd.all.policy -J-Djava.rmi.server.hostname=10.10.10.9 -p 3333 &
+## java.rmi.server.logCalls打开日志,如果客户端有连接过来的请求,可以监控到,便于排错
+$ jstatd -J-Djava.security.policy=jstatd.all.policy -J-Djava.rmi.server.hostname=10.10.10.9 -p 3333 -J-Djava.rmi.server.logCalls=true &
 ```
 
 ### 参考文献
