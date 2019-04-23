@@ -442,6 +442,33 @@ $ cat /sys/devices/system/cpu/cpu0/cache/index0/coherency_line_size
 $ yum --enablerepo="*-debug*" install java-1.8.0-openjdk-debuginfo -y
 ```
 
+#### Tip.44 jstatd如何使用
+
+```
+## 知晓：一般安装java-1.8.0-openjdk
+## java.home目录为${java-1.8.0-openjdk}/jre目录
+## 如：/usr/lib/jvm/java-1.8.0-openjdk-1.8.0.201.b09-2.el7_6.x86_64/jre
+
+## 开启jstatd首选需要选定配置文件
+## /usr/lib/jvm/java-1.8.0-openjdk/jre/lib/security
+## cp java.policy jstatd.all.policy
+## 修改jstatd.all.policy中内容如下:
+
+grant codebase "file:${java.home}/../lib/tools.jar" {
+   permission java.security.AllPermission;
+};
+
+## 一般目录说明:
+## /bin/java 最终-> /usr/lib/jvm/java-1.8.0-openjdk-1.8.0.201.b09-2.el7_6.x86_64/jre/bin/java，属于jre下的java
+## jdk目录为:/usr/lib/jvm/java-1.8.0-openjdk
+## /usr/lib/jvm/java-1.8.0-openjdk 最终-> /usr/lib/jvm/java-1.8.0-openjdk-1.8.0.201.b09-2.el7_6.x86_64 (为openjdk真正的安装目录)
+## jdk目录下的lib下含有tools.jar文件
+
+## jstatd如何启动：没啥好解释的，visualvm可用jstatd远程监控内存gc，真是神器！
+## 必要时java.security.policy可以使用绝对路径指定
+$ jstatd -J-Djava.security.policy=jstatd.all.policy -J-Djava.rmi.server.hostname=10.10.10.9 -p 3333 &
+```
+
 ### 参考文献
 
 - [python3安装第三方包](https://www.jianshu.com/p/9acc85d0ff16)
