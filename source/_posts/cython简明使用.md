@@ -186,7 +186,7 @@ ext_modules=[Extension(name="fastloop",
                        sources=["fastloop.pyx"],
                        libraries=["m"],
                        language='c',
-                       extra_compile_args=['-ffast-math','-fopenmp'],
+                       extra_compile_args=['-O3', -ffast-math','-fopenmp'],
                        extra_link_args=['-fopenmp'],
 
 setup(
@@ -313,3 +313,5 @@ clib.printf(c_char_p("Hello %d %f".encode('utf-8')),c_int(15),c_double(2.3))
 - [python加速](http://www.idataskys.com/2018/04/14/python科学计算加速/)
 - [stackoverflow_fix_openmp](https://stackoverflow.com/questions/16737260/how-to-tell-distutils-to-use-gcc/16737674)
 - [distutils_for_gcc](https://codeday.me/bug/20171008/81374.html)
+- [Parallel computing in Cython](http://nealhughes.net/parallelcomp2/)
+- [Fast Python loops with Cython](http://nealhughes.net/cython1/)

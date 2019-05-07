@@ -470,6 +470,14 @@ grant codebase "file:${java.home}/../lib/tools.jar" {
 $ jstatd -J-Djava.security.policy=jstatd.all.policy -J-Djava.rmi.server.hostname=10.10.10.9 -p 3333 -J-Djava.rmi.server.logCalls=true &
 ```
 
+#### Tip.45 git拉取远程分支
+
+```
+$ git branch -r # 假设有master和feature两个分支
+$ git branch --track feature origin/feature # 将本地branch中的feature关联远程分支origin/feature
+$ git fetch --all && git pull --all
+```
+
 ### 参考文献
 
 - [python3安装第三方包](https://www.jianshu.com/p/9acc85d0ff16)
