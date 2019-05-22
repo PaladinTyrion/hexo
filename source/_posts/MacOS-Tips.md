@@ -478,6 +478,18 @@ $ git branch --track feature origin/feature # 将本地branch中的feature关联
 $ git fetch --all && git pull --all
 ```
 
+#### Tip.46 Python3的CFLAGS等环境变量取址
+
+```
+# 查找方式：入口是python3-config --cflags;
+# 直接找到python3-config命令，是一段python代码，cflags返回来自sysconfig.get_config_var('CFLAGS')
+# 生成cflags参数是在_init_posix中得到的
+# 真正cflags参数是硬编码在如下文件中：
+/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/_sysconfigdata_m_darwin_darwin.py
+
+# cython在编译中gcc-8会直接读取这部分cflags参数直接使用
+```
+
 ### 参考文献
 
 - [python3安装第三方包](https://www.jianshu.com/p/9acc85d0ff16)

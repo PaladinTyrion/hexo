@@ -146,7 +146,15 @@ C code:  0.11884286952119272 seconds
 
 ```
 //fastloop.pyx
-#cython: language_level=3, boundscheck=False, wraparound=False, nonecheck=False
+# distutils: language = c++
+# cython: language_level = 3
+# cython: cdivision = True
+# cython: boundscheck = False
+# cython: wraparound = False
+# cython: profile = False
+# cython: nonecheck = False
+//或者:
+# cython: language_level=3, boundscheck=False, wraparound=False, nonecheck=False
 from libc.math cimport exp
 def rbf_network(double[:, :] X, double[:] beta, double theta):
     from numpy import zeros
