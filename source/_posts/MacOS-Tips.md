@@ -490,6 +490,12 @@ $ git fetch --all && git pull --all
 # cython在编译中gcc-8会直接读取这部分cflags参数直接使用
 ```
 
+#### Tip.47 CentOS更改docker启动service配置
+
+```
+$ vim /usr/lib/systemd/system/docker.service
+```
+
 ### 参考文献
 
 - [python3安装第三方包](https://www.jianshu.com/p/9acc85d0ff16)
