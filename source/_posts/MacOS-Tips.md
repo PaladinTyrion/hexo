@@ -494,6 +494,8 @@ $ git fetch --all && git pull --all
 
 ```
 $ vim /usr/lib/systemd/system/docker.service
+# 修改这句
+ExecStart=/usr/bin/dockerd -H fd:// --containerd=/run/containerd/containerd.sock --graph=/data1/docker/images --insecure-registry hub.docker.com
 ```
 
 ### 参考文献
