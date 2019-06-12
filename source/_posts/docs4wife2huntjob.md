@@ -13,6 +13,7 @@ tags:
 - [100天从新手到大师](https://github.com/jackfrued/Python-100-Days)
 - [Python3.7.3中文教程](https://docs.python.org/zh-cn/3/tutorial/index.html)
 - [Python入门指南3.5.2](https://docs.pythontab.com/python/python3.4/)
+- [在线学习手册——若干前端玩具技术](https://docs.pythontab.com/)
 
 <!-- more -->
 
