@@ -11,8 +11,10 @@ tags:
 #### Python基础学习资料
 
 - [100天从新手到大师](https://github.com/jackfrued/Python-100-Days)
+- [Python3最新教程](https://python3-cookbook.readthedocs.io/zh_CN/latest/index.html)
 - [Python3.7.3中文教程](https://docs.python.org/zh-cn/3/tutorial/index.html)
-- [Python入门指南3.5.2](https://docs.pythontab.com/python/python3.4/)
+- [Linux基础](https://linuxtools-rst.readthedocs.io/zh_CN/latest/base/index.html)
+- [SQL在线教程](https://www.w3resource.com/sql/tutorials.php)
 - [在线学习手册——若干前端玩具技术](https://docs.pythontab.com/)
 - [LeetCode刷题指导](https://github.com/pezy/LeetCode)
 
