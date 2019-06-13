@@ -17,6 +17,7 @@ tags:
 - [SQL在线教程](https://www.w3resource.com/sql/tutorials.php)
 - [在线学习手册——若干前端玩具技术](https://docs.pythontab.com/)
 - [LeetCode刷题指导](https://github.com/pezy/LeetCode)
+- [小土刀的面试刷题笔记](https://wdxtub.com/interview/)
 
 <!-- more -->
 
