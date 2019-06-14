@@ -498,6 +498,15 @@ $ vim /usr/lib/systemd/system/docker.service
 ExecStart=/usr/bin/dockerd -H fd:// --containerd=/run/containerd/containerd.sock --graph=/data1/docker/images --insecure-registry hub.docker.com
 ```
 
+#### Tip.48 nc命令直接传输文件目录
+
+```
+## 接收端
+$ nc -l 10.10.10.22 19995 | tar xfvz -
+## 发送端
+$ tar cfz - * | nc 10.10.10.22 19995
+```
+
 ### 参考文献
 
 - [python3安装第三方包](https://www.jianshu.com/p/9acc85d0ff16)
