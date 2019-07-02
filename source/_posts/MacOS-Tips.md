@@ -507,6 +507,69 @@ $ nc -l 10.10.10.22 19995 | tar xfvz -
 $ tar cfz - * | nc 10.10.10.22 19995
 ```
 
+#### Tip.49 垃圾Centos,只能升级gcc
+
+```
+$ yum -y update
+$ yum -y install bzip2 wget gmp-devel mpfr-devel libmpc-devel
+$ wget http://mirrors-usa.go-parts.com/gcc/releases/gcc-8.2.0/gcc-8.2.0.tar.gz
+$ tar -zxvf gcc-8.2.0.tar.gz
+$ mkdir gcc-8.2.0-build
+$ cd gcc-8.2.0-build
+$ ../gcc-8.2.0/configure --enable-languages=c,c++ --disable-multilib
+$ make -j$(nproc)
+$ make install
+$ gcc --version
+```
+
+#### Tip.50 查看硬盘与分区的有用命令
+
+```
+$ lsblk -a
+$ blkid
+$ sfdisk -l /dev/sda
+$ cfdisk -Ps /dev/sda
+$ ls -l /dev/disk/by-uuid/
+
+$ hdparm -i /dev/sda
+$ smartctl -a /dev/sda
+
+$ swapon -s 或者 cat /proc/swaps ## 查看交换分区信息
+```
+
+#### Tip.51 ping无效
+
+```
+## 查看gateway是否正确
+$ vim /etc/sysconfig/network-scripts/ifcfg-eth0
+```
+
+#### Tip.52 读取网卡UUID
+
+```
+$ yum -y install NetworkManager && service NetworkManager start
+$ nmcli con
+```
+
+打印信息：
+
+```
+NAME         UUID                                  TYPE      DEVICE
+docker0      26907f61-70bd-4b02-a130-80256e16ca3d  bridge    docker0
+eth1         c56addc9-e5d4-4cfb-87f5-32b416a1b5ef  ethernet  eth1
+System eth0  5fb06bd0-0bb0-7ffb-45f1-d6edd65f3e03  ethernet  eth0
+System eth1  9c92fad9-6ecb-3e6c-eb4d-8a47c6f50c04  ethernet  --
+System eth2  3a73717e-65ab-93e8-b518-24f5af32dc0d  ethernet  --
+System eth3  c5ca8081-6db2-4602-4b46-d771f4330a6d  ethernet  --
+```
+
+#### Tip.53 查询网卡状态
+
+```
+$ mii-tool ethx
+$ ethtool ethx
+```
+
 ### 参考文献
 
 - [python3安装第三方包](https://www.jianshu.com/p/9acc85d0ff16)
