@@ -626,3 +626,4 @@ vb.customize ['usbfilter', 'add', '0', '--target', :id, '--name', 'usb extension
 
 - [python3安装第三方包](https://www.jianshu.com/p/9acc85d0ff16)
 - [vagrant+virtualbox连接usb](https://sonnguyen.ws/connect-usb-from-virtual-machine-using-vagrant-and-virtualbox)
+- [fio读写性能测试](https://www.alibabacloud.com/help/zh/doc-detail/25382.htm)
