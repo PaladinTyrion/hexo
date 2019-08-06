@@ -259,8 +259,8 @@ $ vim /usr/bin/yum-config-manager
 export http_proxy=http://username:password@proxyserver:port/
 export https_proxy=http://username:password@proxyserver:port/
 export ftp_proxy=http://username:password@proxyserver:port/
-# export http_proxy=http://10.93.1.44:8080
-# export https_proxy=http://10.93.1.44:8080
+# export http_proxy=http://10.39.1.44:8080
+# export https_proxy=http://10.39.1.44:8080
 ```
 
 yum可以修改/etc/yum.conf
@@ -622,8 +622,21 @@ vb.customize ["modifyvm", :id, "--usb", "on"]
 vb.customize ['usbfilter', 'add', '0', '--target', :id, '--name', 'usb extension', '--vendorid', '0x1a86', '--productid', '0x7523']
 ```
 
+#### Tip.55 内存/CPU监控
+
+```
+$ vmstat 2 1000     ## 每2秒执行，执行1000次
+$ vmstat -s -S M    ## 打印内存监控信息，单位MB
+$ htop    ## 用F5看到进程里面的线程，树形目录父子关系
+$ memstat -p pid   ## 查看内存
+$ memstat -w
+```
+
 ### 参考文献
 
 - [python3安装第三方包](https://www.jianshu.com/p/9acc85d0ff16)
 - [vagrant+virtualbox连接usb](https://sonnguyen.ws/connect-usb-from-virtual-machine-using-vagrant-and-virtualbox)
 - [fio读写性能测试](https://www.alibabacloud.com/help/zh/doc-detail/25382.htm)
+- [Linux cpu/mem监控命令](https://www.cnblogs.com/arnoldlu/p/9462221.html)
+- [Linux内存监控命令](https://linux.cn/article-4836-2.html)
+- [Maven配置文件详解](https://blog.csdn.net/u012152619/article/details/51485297)
