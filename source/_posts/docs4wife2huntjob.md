@@ -19,6 +19,7 @@ tags:
 - [LeetCode刷题指导](https://github.com/pezy/LeetCode)
 - [小土刀的面试刷题笔记](https://wdxtub.com/interview/)
 - [数据科学资料](https://github.com/fengdu78/Data-Science-Notes)
+- [Leetcode部分题解参考](https://www.zybuluo.com/Yano/note/255794)
 
 <!-- more -->
 
