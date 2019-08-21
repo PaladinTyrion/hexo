@@ -261,6 +261,11 @@ export https_proxy=http://username:password@proxyserver:port/
 export ftp_proxy=http://username:password@proxyserver:port/
 # export http_proxy=http://10.39.1.44:8080
 # export https_proxy=http://10.39.1.44:8080
+
+## 其他方法
+export ALL_PROXY=socks5://127.0.0.1:7891
+export http_proxy="socks5://127.0.0.1:7891"
+export https_proxy="socks5://127.0.0.1:7891"
 ```
 
 yum可以修改/etc/yum.conf
@@ -634,6 +639,7 @@ $ memstat -w
 
 ### 参考文献
 
+- [终端走代理](https://blog.fazero.me/2015/09/15/%E8%AE%A9%E7%BB%88%E7%AB%AF%E8%B5%B0%E4%BB%A3%E7%90%86%E7%9A%84%E5%87%A0%E7%A7%8D%E6%96%B9%E6%B3%95/)
 - [python3安装第三方包](https://www.jianshu.com/p/9acc85d0ff16)
 - [vagrant+virtualbox连接usb](https://sonnguyen.ws/connect-usb-from-virtual-machine-using-vagrant-and-virtualbox)
 - [fio读写性能测试](https://www.alibabacloud.com/help/zh/doc-detail/25382.htm)
