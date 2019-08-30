@@ -276,6 +276,7 @@ hadoop3
 $ hdfs namenode -format <cluster_name>
 # 先启hdfs再yarn
 $ start-dfs.sh && start-yarn.sh
+$ $HADOOP_HOME/sbin/mr-jobhistory-daemon.sh start historyserver
 
 # 先关yarn再hdfs
 $ stop-yarn.sh && stop-dfs.sh
