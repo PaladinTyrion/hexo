@@ -175,7 +175,7 @@ Hive配置：
     </property>
     <property>
         <name>tez.lib.uris</name>
-        <value>hdfs://10.77.121.21:9000/user/tez/tez.tar.gz</value>
+        <value>hdfs://hadoop1:9000/user/tez/tez.tar.gz</value>
     </property>
     <property>
         <name>tez.am.resource.memory.mb</name>
