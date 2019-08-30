@@ -163,6 +163,28 @@ Hive配置：
       	    queries using MapJoin.
     	</description>
     </property>
+    <property>
+        <name>hive.execution.engine</name>
+        <value>tez</value>
+        <description>
+            Expects one of [mr, tez, spark].
+            Chooses execution engine. Options are: mr (Map reduce, default), tez, spark. While MR
+            remains the default engine for historical reasons, it is itself a historical engine
+            and is deprecated in Hive 2 line. It may be removed without further warning.
+        </description>
+    </property>
+    <property>
+        <name>tez.lib.uris</name>
+        <value>hdfs://10.77.121.21:9000/user/tez/tez.tar.gz</value>
+    </property>
+    <property>
+        <name>tez.am.resource.memory.mb</name>
+        <value>4096</value>
+    </property>
+    <property>
+        <name>tez.am.resource.cpu.vcores</name>
+        <value>4</value>
+    </property>
 </configuration>
 ```
 
