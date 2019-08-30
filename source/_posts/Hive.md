@@ -249,9 +249,10 @@ metastore可以meta server机器起，远程连接meta服务。
 ```
 
 - 参考资料:
-    1. http://blog.csdn.net/gamer_gyt/article/details/52062460
-    2. http://blog.csdn.net/sunnyyoona/article/details/51648871
-
+    1. [hiveserver/hiveserver2的比较](http://blog.csdn.net/gamer_gyt/article/details/52062460)
+    2. [Hive踩过的坑](http://blog.csdn.net/sunnyyoona/article/details/51648871)
+    3. [Hive on Tez](https://blog.csdn.net/duguyiren3476/article/details/46349177)
+    4. [Hive on tez](https://blog.csdn.net/sinat_37690778/article/details/80594571)
 --- 
 
 - 附录资料：
