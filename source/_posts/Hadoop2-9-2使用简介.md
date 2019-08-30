@@ -181,11 +181,11 @@ export JAVA_HOME=/usr/lib/jvm/java-1.8.0-openjdk-1.8.0.191.b12-1.el7_6.x86_64/jr
     </property>
     <property>
         <name>mapreduce.jobhistory.address</name>
-        <value>0.0.0.0:10020</value>
+        <value>hadoop1:10020</value>
     </property>
     <property>
         <name>mapreduce.jobhistory.webapp.address</name>
-        <value>0.0.0.0:19888</value>
+        <value>hadoop1:19888</value>
     </property>
 </configuration>
 ```
