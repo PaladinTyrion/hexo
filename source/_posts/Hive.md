@@ -184,6 +184,11 @@ Hive配置：
         <value>4096</value>
     </property>
     <property>
+        <name>hive.tez.container.max.java.heap.fraction</name>
+        <value>0.9</value>
+        <description>This is to override the tez setting with the same name</description>
+    </property>
+    <property>
         <name>tez.am.resource.cpu.vcores</name>
         <value>4</value>
     </property>
