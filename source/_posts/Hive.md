@@ -176,6 +176,14 @@ Hive配置：
         </description>
     </property>
     <property>
+        <name>hive.exec.parallel</name>
+        <value>true</value>
+    </property>
+    <property>
+        <name>hive.tez.auto.reducer.parallelism</name>
+        <value>true</value>
+    </property>
+    <property>
         <name>tez.lib.uris</name>
         <value>hdfs://hadoop1:9000/user/tez/tez.tar.gz</value>
     </property>
