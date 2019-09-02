@@ -140,6 +140,8 @@ Hive配置：
         <name>hive.scratch.dir.permission</name>
         <value>755</value>
     </property>
+    <!-- doAs为true表示以登录hiveserver2的用户身份执行hadoop job -->
+    <!-- doAs为false表示以启动hiveserver2进程的用户身份去执行hadoop job -->
     <property>
         <name>hive.server2.enable.doAs</name>
         <value>true</value>
