@@ -222,7 +222,7 @@ $ nohup hive --service hiveserver2 >> hiveserv.log 2>&1 &
 $ nohup hive --service metastore >> hivemeta.log 2>&1 &
 # 在本机访问时不填写host:port,否则应为jdbc:hive2://$ip:10000
 # 远程访问时，需要hadoop core-site中配置过hadoop.proxyuser.xxx.hosts/groups项。
-$ beeline -u jdbc:hive2://  #beeline -u jdbc:hive2://10.10.10.10:10000
+$ beeline -u jdbc:hive2://  #beeline -u jdbc:hive2://10.10.10.10:10000 -n hive/root
 ```
 
 - 遇到的问题，有时候jdbc连接问题:
