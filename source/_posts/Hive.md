@@ -200,6 +200,18 @@ Hive配置：
         <name>tez.am.resource.cpu.vcores</name>
         <value>4</value>
     </property>
+    <property>
+        <name>hive.vectorized.execution.enabled</name>
+        <value>true</value>
+    </property>
+    <property>
+        <name>hive.vectorized.execution.reduce.enabled</name>
+        <value>true</value>
+    </property>
+    <property>
+        <name>hive.compute.query.using.stats</name>
+        <value>false</value>
+    </property>
 </configuration>
 ```
 
@@ -236,6 +248,9 @@ $ nohup hive --service metastore >> hivemeta.log 2>&1 &
 # 在本机访问时不填写host:port,否则应为jdbc:hive2://$ip:10000
 # 远程访问时，需要hadoop core-site中配置过hadoop.proxyuser.xxx.hosts/groups项。
 $ beeline -u jdbc:hive2://  #beeline -u jdbc:hive2://10.10.10.10:10000 -n hive/root
+
+# 注意：如果hive.cbo.enable=true并且hive.compute.query.using.stats=true，当hive.stats.fetch.column.stats=true或者hive.stats.fetch.partition.stats=ture时，stats数据需要命令更新
+$ hive>> analyze table <tablename> compute statistics for columns;
 ```
 
 - 遇到的问题，有时候jdbc连接问题:
@@ -269,6 +284,7 @@ metastore可以meta server机器起，远程连接meta服务。
     3. [Hive on Tez](https://blog.csdn.net/duguyiren3476/article/details/46349177)
     4. [Hive on tez](https://blog.csdn.net/sinat_37690778/article/details/80594571)
     5. [Tez优化参考](https://www.cnblogs.com/mobiwangyue/p/8405780.html)
+    6. [Hive的几处优化](https://www.cnblogs.com/SpeakSoftlyLove/p/6063908.html)
 --- 
 
 - 附录资料：
