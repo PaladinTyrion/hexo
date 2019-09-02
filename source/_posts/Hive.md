@@ -260,6 +260,7 @@ metastore可以meta server机器起，远程连接meta服务。
     2. [Hive踩过的坑](http://blog.csdn.net/sunnyyoona/article/details/51648871)
     3. [Hive on Tez](https://blog.csdn.net/duguyiren3476/article/details/46349177)
     4. [Hive on tez](https://blog.csdn.net/sinat_37690778/article/details/80594571)
+    5. [Tez优化参考](https://www.cnblogs.com/mobiwangyue/p/8405780.html)
 --- 
 
 - 附录资料：
