@@ -82,7 +82,7 @@ $ export PATH=$PATH:$FLINK_HOME/bin
 
 ```
 # 添加下面两个
-export FLINK_SSH_OPTS="-p 26387"
+export FLINK_SSH_OPTS="-p 2222"
 export JAVA_HOME="/usr/lib/jvm/jre-1.8.0-openjdk"
 ```
 
