@@ -637,6 +637,13 @@ $ memstat -p pid   ## 查看内存
 $ memstat -w
 ```
 
+#### Tip.56 限制网卡对某端口的访问
+
+```
+## 假设有两个网卡eth0、eth1，我们想要限制eth0的input访问3001端口，命令后立即生效，无需重启iptables
+$ iptables -A INPUT -i eth0 -p tcp --dport=3001 -j DROP/REJECT
+```
+
 ### 参考文献
 
 - [终端走代理](https://blog.fazero.me/2015/09/15/%E8%AE%A9%E7%BB%88%E7%AB%AF%E8%B5%B0%E4%BB%A3%E7%90%86%E7%9A%84%E5%87%A0%E7%A7%8D%E6%96%B9%E6%B3%95/)
@@ -646,3 +653,4 @@ $ memstat -w
 - [Linux cpu/mem监控命令](https://www.cnblogs.com/arnoldlu/p/9462221.html)
 - [Linux内存监控命令](https://linux.cn/article-4836-2.html)
 - [Maven配置文件详解](https://blog.csdn.net/u012152619/article/details/51485297)
+- [iptables的常用技巧](https://www.jianshu.com/p/e95bb29be6ef)
