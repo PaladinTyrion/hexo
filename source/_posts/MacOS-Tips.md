@@ -640,8 +640,30 @@ $ memstat -w
 #### Tip.56 限制网卡对某端口的访问
 
 ```
+## 观察一下iptables状态
+$ iptables -nvL
 ## 假设有两个网卡eth0、eth1，我们想要限制eth0的input访问3001端口，命令后立即生效，无需重启iptables
 $ iptables -A INPUT -i eth0 -p tcp --dport=3001 -j DROP/REJECT
+## 禁止多个端口
+$ iptables -A INPUT -i eth0 -p tcp -m multiport --dport 3001,8080 -j DROP/REJECT
+```
+
+对于打算禁止eth0访问docker映射出的外部端口，使用外部INPUT、FORWARD直接禁止端口发现都是无效的。
+
+如开启容器使用了-p 8099:8080,可以通过iptables-save观察到如下内容：
+
+```
+-A POSTROUTING -s 172.17.0.0/16 ! -o docker0 -j MASQUERADE
+-A POSTROUTING -s 172.17.0.2/32 -d 172.17.0.2/32 -p tcp -m tcp --dport 8080 -j MASQUERADE
+-A DOCKER -i docker0 -j RETURN
+-A DOCKER ! -i docker0 -p tcp -m tcp --dport 8099 -j DNAT --to-destination 172.17.0.2:8080
+```
+
+我们大概可以猜到docker是将eth0流量转发至docker0中的8099端口，又通过DNAT映射至容器8080端口，故而我们的iptables规则应书写如下：
+
+```
+## 我们将eth0进入的转发流量关闭与docker0的连接即可
+$ iptables -I FORWARD -i eth0 -p tcp -m tcp -d 172.17.0.2/32 -j REJECT
 ```
 
 ### 参考文献
@@ -654,3 +676,4 @@ $ iptables -A INPUT -i eth0 -p tcp --dport=3001 -j DROP/REJECT
 - [Linux内存监控命令](https://linux.cn/article-4836-2.html)
 - [Maven配置文件详解](https://blog.csdn.net/u012152619/article/details/51485297)
 - [iptables的常用技巧](https://www.jianshu.com/p/e95bb29be6ef)
+- [docker网络与iptables](https://www.jianshu.com/p/96707d880a47)
