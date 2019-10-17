@@ -185,3 +185,4 @@ $ node local.js -m aes-256-cfb -k ${mypassword} -s ${my-vps-ip} -p 9988 -l 1081 
 4. [ss客户端](https://shadowsocks.org/en/download/clients.html)
 5. [其他参考教程](http://kr1.crossfirewall.win:8000/archives.html)
 6. [shadowsocks-over-websocket](http://www.xuxiaobo.com/?p=3051)
+7. [特别牛逼参考Surge3规则](https://github.com/ConnersHua/Profiles/blob/master/README.md)
