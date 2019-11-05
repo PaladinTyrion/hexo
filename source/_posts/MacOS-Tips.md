@@ -666,6 +666,16 @@ $ iptables -A INPUT -i eth0 -p tcp -m multiport --dport 3001,8080 -j DROP/REJECT
 $ iptables -I FORWARD -i eth0 -p tcp -m tcp -d 172.17.0.2/32 -j REJECT
 ```
 
+#### Tip.57 MacOSX更改用户组权限
+
+```
+## 显示所有 user 对应的 group
+$ sudo dscl . -list /groups GroupMembership 
+
+## 添加/删除user关联group
+$ sudo dscl . -append[-delete] /Groups/${groupname} GroupMembership ${username}
+```
+
 ### 参考文献
 
 - [终端走代理](https://blog.fazero.me/2015/09/15/%E8%AE%A9%E7%BB%88%E7%AB%AF%E8%B5%B0%E4%BB%A3%E7%90%86%E7%9A%84%E5%87%A0%E7%A7%8D%E6%96%B9%E6%B3%95/)
@@ -677,3 +687,4 @@ $ iptables -I FORWARD -i eth0 -p tcp -m tcp -d 172.17.0.2/32 -j REJECT
 - [Maven配置文件详解](https://blog.csdn.net/u012152619/article/details/51485297)
 - [iptables的常用技巧](https://www.jianshu.com/p/e95bb29be6ef)
 - [docker网络与iptables](https://www.jianshu.com/p/96707d880a47)
+- [mac使用dscl进行用户和组的管理](https://www.jianshu.com/p/865460687bae)

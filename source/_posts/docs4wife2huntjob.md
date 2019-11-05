@@ -25,5 +25,6 @@ tags:
 
 #### DL/ML学习资料
 
+- [100天ML-Code](https://github.com/Avik-Jain/100-Days-Of-ML-Code.git)
 - [统计学习方法代码实现](https://github.com/fengdu78/lihang-code)
 - [动手学深度学习(李沐.著)](https://zh.d2l.ai/index.html)
