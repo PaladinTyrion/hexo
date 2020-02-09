@@ -676,6 +676,12 @@ $ sudo dscl . -list /groups GroupMembership
 $ sudo dscl . -append[-delete] /Groups/${groupname} GroupMembership ${username}
 ```
 
+#### Tip.58 查询登录历史记录
+
+```
+$ who /var/log/wtmp
+```
+
 ### 参考文献
 
 - [终端走代理](https://blog.fazero.me/2015/09/15/%E8%AE%A9%E7%BB%88%E7%AB%AF%E8%B5%B0%E4%BB%A3%E7%90%86%E7%9A%84%E5%87%A0%E7%A7%8D%E6%96%B9%E6%B3%95/)
